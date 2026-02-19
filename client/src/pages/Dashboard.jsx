@@ -73,7 +73,7 @@ const MiniResumePreview = ({ data }) => {
             ))}
           </>
         ) : (
-          <div className="text-[10px] text-zinc-400 italic pt-2">No experience or project added yet.</div>
+          <div className="text-[10px] text-zinc-400 italic pt-2">No experience or projects added yet.</div>
         )}
       </div>
       <div className="mt-auto">
