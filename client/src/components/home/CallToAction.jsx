@@ -6,7 +6,7 @@ import Title from "./Title";
 
 const CallToAction = () => {
   return (
-    <section className="py-24 relative overflow-hidden bg-zinc-950">
+    <section className="py-24 relative overflow-hidden bg-transparent">
       
       {/* Background glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

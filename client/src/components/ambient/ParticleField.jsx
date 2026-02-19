@@ -17,7 +17,7 @@ const ParticleField = () => {
   return (
     <Particles
       id="tsparticles"
-      className="fixed inset-0 z-0 pointer-events-none"
+      className="fixed inset-0 z-[1] pointer-events-none"
       options={{
         fullScreen: { enable: false },
         background: { color: { value: "transparent" } },
@@ -25,14 +25,14 @@ const ParticleField = () => {
         particles: {
           color: { value: "#ffffff" },
           move: { enable: true, speed: 0.3, random: true, direction: "none" },
-          number: { value: 60, density: { enable: true, area: 800 } },
-          opacity: { value: 0.2 },
+          number: { value: 100, density: { enable: true, area: 800 } },
+          opacity: { value: 0.3 },
           shape: { type: "circle" },
           size: { value: { min: 1, max: 3 } },
           links: {
             enable: true,
             color: "#ffffff",
-            opacity: 0.05,
+            opacity: 0.1,
             distance: 150,
           },
         },
