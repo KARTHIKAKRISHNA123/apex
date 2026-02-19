@@ -28,14 +28,14 @@ const Navbar = () => {
     */
     <nav className="sticky top-0 w-full z-40 border-b border-white/5 bg-background/60 backdrop-blur-xl transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        
+
         {/* --- IMPROVEMENT 3: Hide Logo in Dashboard to avoid "Double Logo" --- */}
         {!isDashboard ? (
           <Link to="/" className="flex items-center gap-3 group">
-            <img 
-              src="/logo.png" 
-              alt="Apex Logo" 
-              className="w-8 h-8 rounded-lg object-contain bg-zinc-900 border border-zinc-800 transform group-hover:rotate-6 transition-transform shadow-2xl" 
+            <img
+              src="/logo.png"
+              alt="Apex Logo"
+              className="w-8 h-8 rounded-lg object-contain bg-zinc-900 border border-zinc-800 transform group-hover:rotate-6 transition-transform shadow-2xl"
             />
             <span className="font-bold text-lg tracking-tighter text-white uppercase">APEX</span>
           </Link>
@@ -48,7 +48,7 @@ const Navbar = () => {
         {!isDashboard && (
           <div className="hidden md:flex items-center gap-8">
             {['Home', 'Features', 'Testimonials', 'Contact'].map((item) => (
-              <a 
+              <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 onClick={(e) => scrollToSection(e, item.toLowerCase())}
@@ -67,11 +67,11 @@ const Navbar = () => {
               <span className="hidden sm:block text-[10px] font-bold tracking-[0.15em] text-zinc-500 uppercase">
                 HI, <span className="text-white">{user?.fullName?.split(' ')[0] || 'ENGINEER'}</span>
               </span>
-              
+
               {/* Only show Workspace button if we aren't already there */}
               {!isDashboard && (
-                <Link 
-                  to="/app" 
+                <Link
+                  to="/app"
                   className="px-5 py-2 text-[10px] font-bold tracking-widest text-black bg-white rounded-md hover:bg-zinc-200 transition-all uppercase shadow-lg shadow-white/5"
                 >
                   Workspace
@@ -80,14 +80,14 @@ const Navbar = () => {
             </div>
           ) : (
             <>
-              <Link 
-                to="/login" 
+              <Link
+                to="/login"
                 className="hidden sm:block text-[10px] font-bold tracking-widest text-zinc-500 hover:text-white uppercase transition-colors"
               >
                 Sign In
               </Link>
-              <Link 
-                to="/login" 
+              <Link
+                to="/app"
                 className="px-5 py-2 text-[10px] font-bold tracking-widest text-black bg-white rounded-md hover:bg-zinc-200 transition-all uppercase shadow-[0_0_25px_rgba(255,255,255,0.1)]"
               >
                 Get Started

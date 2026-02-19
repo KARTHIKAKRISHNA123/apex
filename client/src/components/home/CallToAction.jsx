@@ -7,14 +7,14 @@ import Title from "./Title";
 const CallToAction = () => {
   return (
     <section className="py-24 relative overflow-hidden bg-transparent">
-      
+
       {/* Background glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[600px] h-[300px] bg-white/5 rounded-[100%] blur-[100px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        
+
         <Title
           title={
             <>
@@ -71,7 +71,7 @@ const CallToAction = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8"
           >
             <Link
-              to="/login"
+              to="/app"
               className="w-full sm:w-auto px-8 py-4 bg-white text-black font-semibold rounded-md hover:bg-zinc-200 transition-all flex items-center justify-center gap-2 group active:scale-[0.98]"
             >
               Build for Free

@@ -18,12 +18,27 @@ const MinimalImageTemplate = ({ data, accentColor }) => {
                     {/* Image */}
                     {data.personal_info?.image && typeof data.personal_info.image === 'string' ? (
                         <div className="mb-6">
-                            <img src={data.personal_info.image} alt="Profile" className="w-32 h-32 object-cover rounded-full mx-auto" style={{ background: accentColor+'70' }} />
+                            <img
+                                src={data.personal_info.image}
+                                alt="Profile"
+                                className="w-32 h-32 object-cover rounded-full mx-auto"
+                                style={{
+                                    background: accentColor + '70',
+                                    objectPosition: data.personal_info?.auto_focus_face ? '50% 25%' : 'center'
+                                }}
+                            />
                         </div>
                     ) : (
                         data.personal_info?.image && typeof data.personal_info.image === 'object' ? (
                             <div className="mb-6">
-                                <img src={URL.createObjectURL(data.personal_info.image)} alt="Profile" className="w-32 h-32 object-cover rounded-full mx-auto" />
+                                <img
+                                    src={URL.createObjectURL(data.personal_info.image)}
+                                    alt="Profile"
+                                    className="w-32 h-32 object-cover rounded-full mx-auto"
+                                    style={{
+                                        objectPosition: data.personal_info?.auto_focus_face ? '50% 25%' : 'center'
+                                    }}
+                                />
                             </div>
                         ) : null
                     )}
@@ -223,11 +238,11 @@ const MinimalImageTemplate = ({ data, accentColor }) => {
                             <div className="space-y-5">
                                 {data.projects.map((project, index) => (
                                     <div key={index}>
-                                        <div className="flex justify-between items-baseline">
+                                        <div className="flex flex-wrap items-baseline gap-2">
                                             <h3 className="text-md font-bold text-zinc-900">{project.name}</h3>
                                             {project.link && (
-                                                <a href={project.link} target="_blank" rel="noreferrer" className="text-xs text-blue-600 hover:underline">
-                                                    {project.link.replace(/^https?:\/\/(www\.)?/, '')}
+                                                <a href={project.link} target="_blank" rel="noreferrer" className="text-xs text-zinc-600 hover:text-black hover:underline transition-colors">
+                                                    | {project.link.replace(/^https?:\/\/(www\.)?/, '')}
                                                 </a>
                                             )}
                                         </div>
