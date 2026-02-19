@@ -17,6 +17,7 @@ import AmbientGlow from './components/ambient/AmbientGlow'
 
 const App = () => {
   return (
+    // THIS is the only solid background in the app
     <div className="relative min-h-screen bg-background text-foreground overflow-hidden selection:bg-zinc-700 selection:text-white">
       
       {/* --- LAYER 0: ATMOSPHERE --- */}

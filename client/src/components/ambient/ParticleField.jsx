@@ -1,16 +1,22 @@
-import { useCallback } from "react";
-import Particles from "react-tsparticles";
-import { loadSlim } from "tsparticles-slim";
+import { useCallback } from "react"
+import Particles, { initParticlesEngine } from "@tsparticles/react"
+import { loadSlim } from "@tsparticles/slim"
+import { useEffect, useState } from "react"
 
 const ParticleField = () => {
-  const particlesInit = useCallback(async engine => {
-    await loadSlim(engine);
-  }, []);
+  const [init, setInit] = useState(false)
+
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine)
+    }).then(() => setInit(true))
+  }, [])
+
+  if (!init) return null
 
   return (
     <Particles
       id="tsparticles"
-      init={particlesInit}
       className="fixed inset-0 z-0 pointer-events-none"
       options={{
         fullScreen: { enable: false },
@@ -18,27 +24,22 @@ const ParticleField = () => {
         fpsLimit: 60,
         particles: {
           color: { value: "#ffffff" },
-          move: {
-            enable: true,
-            direction: "none",
-            random: true,
-            speed: 0.2,
-            straight: false,
-          },
-          number: {
-            density: { enable: true, area: 800 },
-            value: 20,
-          },
-          opacity: {
-            value: 0.1,
-          },
+          move: { enable: true, speed: 0.3, random: true, direction: "none" },
+          number: { value: 60, density: { enable: true, area: 800 } },
+          opacity: { value: 0.2 },
           shape: { type: "circle" },
-          size: { value: { min: 1, max: 2 } },
+          size: { value: { min: 1, max: 3 } },
+          links: {
+            enable: true,
+            color: "#ffffff",
+            opacity: 0.05,
+            distance: 150,
+          },
         },
         detectRetina: true,
       }}
     />
-  );
-};
+  )
+}
 
-export default ParticleField;
+export default ParticleField

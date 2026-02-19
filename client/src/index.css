@@ -55,3 +55,48 @@
       scrollbar-width: none;
   }
 }
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media print {
+  /* 1. Force Background Colors (Zinc/Gray backgrounds usually disappear without this) */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* 2. Hide everything that isn't the resume */
+  body * {
+    visibility: hidden;
+  }
+  
+  /* 3. Show ONLY the resume content */
+  #resume-preview-content, #resume-preview-content * {
+    visibility: visible;
+  }
+
+  /* 4. Position it at the top-left of the paper */
+  #resume-preview-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 210mm;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    
+    /* 5. RESET SCALING: This fixes the "Tiny PDF" issue */
+    transform: scale(1) !important; 
+    box-shadow: none !important;
+  }
+
+  /* 6. Remove browser default headers/footers */
+  @page {
+    size: auto;
+    margin: 0mm;
+  }
+}
